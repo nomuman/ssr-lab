@@ -5,9 +5,17 @@ description: Estimate 5-point Likert ratings (purchase intent, satisfaction) fro
 
 # Semantic Similarity Rating (SSR)
 
-Direct Likert elicitation fails: asked "rate this 1–5", LLMs cluster on
-safe middle answers (the paper measured distribution similarity of only
-0.26). SSR fixes this by separating *expression* from *measurement*:
+Direct Likert elicitation fails *against human data*: asked "rate this
+1–5", LLMs cluster on safe middle answers (the paper measured
+distribution similarity of only 0.26 vs real consumers). SSR fixes this
+by separating *expression* from *measurement*.
+Honest caveat from our own control experiment (round 9): inside an
+all-synthetic loop — LLM personas, LLM-written responses, LLM-read gold
+labels — direct ratings were as accurate as SSR, sometimes better.
+SSR's documented advantage is matching *human* distributions; if your
+whole pipeline is synthetic and per-item accuracy is all you need,
+direct elicitation is simpler. SSR still gives you a per-item
+probability distribution instead of a single forced number.
 
 1. The respondent (an LLM persona, or a real human) answers in **free text**.
 2. The text is embedded and compared by cosine similarity to **anchor

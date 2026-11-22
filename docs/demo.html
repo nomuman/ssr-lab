@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>SSR デモ — 文章から購買意欲を測る</title>
+<style>
+  body { font-family: system-ui, sans-serif; max-width: 720px; margin: 2rem auto; padding: 0 1rem; line-height: 1.6; }
+  textarea { width: 100%; height: 6rem; font-size: 1rem; }
+  button { font-size: 1rem; padding: .5rem 1.2rem; margin: .5rem 0; cursor: pointer; }
+  .bar-row { display: flex; align-items: center; gap: .5rem; margin: .25rem 0; }
+  .bar-label { width: 3.5rem; text-align: right; }
+  .bar-track { flex: 1; background: #eee; height: 1.2rem; border-radius: 4px; overflow: hidden; }
+  .bar-fill { height: 100%; background: #4a7ddb; width: 0%; transition: width .3s; }
+  .bar-pct { width: 4rem; }
+  #status { color: #666; font-size: .9rem; }
+  .examples button { font-size: .85rem; padding: .3rem .6rem; margin-right: .3rem; }
+</style>
+</head>
+<body>
+<h1>SSR デモ</h1>
+<p>消費者の自由記述を貼ると、Semantic Similarity Rating (SSR) で
+「買いたい度合い」を5段階の確率分布に変換します。LLMに直接
+「1〜5で答えて」と聞く代わりに、文章の意味をアンカー文と比べる方法です。</p>
+<p id="status">モデルの読み込みを待っています…（初回は数十MBのダウンロードがあります）</p>
+
+<div class="examples">
+  例:
+  <button data-ex="月300円なら、まず試してみたいです。効果があれば続けます。">前向き</button>
+  <button data-ex="悪くないけど、お金を払ってまでは要らないかな。今のままで十分です。">消極的</button>
+  <button data-ex="絶対に買います。ずっとこういうのを探していました。">即決</button>
+</div>
+<textarea id="input" placeholder="例：月500円なら入ってもいいけど、980円は高いかな…"></textarea>
+<br>
+<button id="run" disabled>採点する</button>
+
+<div id="result" hidden>
+  <h2>結果</h2>
+  <div id="bars"></div>
+  <p>期待値スコア: <strong id="score"></strong> / 5</p>
+</div>
+
+<p style="font-size:.85rem;color:#666">
+このデモはブラウザ内で動く小型モデル（multilingual MiniLM）を使います。
+ssr-lab の推奨構成（MPNet）とはモデルが異なるため、数値は目安です。
+手法・検証データ・スキル版はこちら:
+<a href="https://github.com/nomuman/ssr-lab">nomuman/ssr-lab</a>
+</p>
+
+<script type="module">
+import { pipeline } from 'https://cdn.jsdelivr.net/npm/@xenova/transformers@2.17.2/dist/transformers.min.js';
+
+const ANCHORS = {
+  "1": [
+    "絶対に買いません。全く興味がありません。",
+    "お金を払う価値はないと思います。",
+    "論外です。利用するつもりは一切ありません。",
+    "この価格では高すぎて話になりません。絶対に払いません。",
+    "自分には全く必要ありません。1円も出したくありません。",
+    "考えられません。使う場面が思いつきません。"
+  ],
+  "2": [
+    "あまり魅力を感じません。たぶん買いません。",
+    "自分には合わない気がします。購入は見送ると思います。",
+    "この価格では高いと感じます。もっと安ければ考えるかもしれません。",
+    "良さそうですが、私は今のままで十分なので使いません。",
+    "興味はありますが、お金を払ってまでは要りません。",
+    "丁寧に考えましたが、やめておきます。たぶん利用しません。"
+  ],
+  "3": [
+    "どちらとも言えません。少し興味はありますが迷います。",
+    "まあまあです。様子を見て考えます。",
+    "内容次第です。まず試してみないと判断できません。",
+    "まずは無料で試してから決めたいです。",
+    "興味はありますが、今すぐお金を払うかは分かりません。",
+    "良い面もありますが、自分の使い方に合うか微妙です。"
+  ],
+  "4": [
+    "いいと思います。たぶん購入するでしょう。",
+    "気に入りました。買う可能性は高いです。",
+    "前向きに検討します。価格も妥当だと思います。",
+    "内容が良ければ、この価格でも払います。",
+    "試してみて良ければ続けたいです。前向きです。",
+    "自分の使い方に合っているので、申し込むと思います。"
+  ],
+  "5": [
+    "ぜひ使いたいです。お金を払ってでもすぐに始めたいです。",
+    "これは自分にぴったりだと思います。必ず購入します。",
+    "とても魅力的です。迷わず申し込みます。",
+    "この価格なら安いくらいです。即決します。",
+    "ずっとこういう機能を待っていました。絶対に使います。",
+    "文句なしに良いです。すぐに契約したいです。"
+  ]
+};
+const T = 10;
+const status = document.getElementById('status');
+const runBtn = document.getElementById('run');
+let extractor = null;
+let anchorVecs = null;
+
+function cosine(a, b) {
+  let s = 0;
+  for (let i = 0; i < a.length; i++) s += a[i] * b[i];
+  return s; // vectors are L2-normalized by the pipeline
+}
+
+async function embed(text) {
+  const out = await extractor(text, { pooling: 'mean', normalize: true });
+  return out.data;
+}
+
+async function init() {
+  extractor = await pipeline('feature-extraction', 'Xenova/paraphrase-multilingual-MiniLM-L12-v2', { quantized: true });
+  anchorVecs = [];
+  for (let lvl = 1; lvl <= 5; lvl++) {
+    for (const t of ANCHORS[lvl]) anchorVecs.push({ lvl, vec: await embed(t) });
+  }
+  status.textContent = '準備完了。文章を入れて「採点する」を押してください。';
+  runBtn.disabled = false;
+}
+
+document.querySelectorAll('.examples button').forEach(b => {
+  b.addEventListener('click', () => { document.getElementById('input').value = b.dataset.ex; });
+});
+
+runBtn.addEventListener('click', async () => {
+  const text = document.getElementById('input').value.trim();
+  if (!text) return;
+  runBtn.disabled = true;
+  status.textContent = '採点中…';
+  const x = await embed(text);
+  const levels = [1, 2, 3, 4, 5].map(lvl => {
+    const sims = anchorVecs.filter(a => a.lvl === lvl).map(a => cosine(x, a.vec));
+    return sims.reduce((a, b) => a + b, 0) / sims.length;
+  });
+  const w = levels.map(s => Math.pow(Math.max(s, 0.01), T));
+  const sum = w.reduce((a, b) => a + b, 0);
+  const pmf = w.map(v => v / sum);
+  const score = pmf.reduce((acc, p, i) => acc + p * (i + 1), 0);
+  const bars = document.getElementById('bars');
+  bars.innerHTML = '';
+  pmf.forEach((p, i) => {
+    const row = document.createElement('div');
+    row.className = 'bar-row';
+    row.innerHTML = `<span class="bar-label">${i + 1}:</span>
+      <div class="bar-track"><div class="bar-fill" style="width:${(p * 100).toFixed(1)}%"></div></div>
+      <span class="bar-pct">${(p * 100).toFixed(1)}%</span>`;
+    bars.appendChild(row);
+  });
+  document.getElementById('score').textContent = score.toFixed(2);
+  document.getElementById('result').hidden = false;
+  status.textContent = '準備完了。';
+  runBtn.disabled = false;
+});
+
+init().catch(e => { status.textContent = 'モデルの読み込みに失敗しました: ' + e.message; });
+</script>
+</body>
+</html>
