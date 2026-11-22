@@ -1,0 +1,2 @@
+[console_scripts]
+ssr-lab = ssr_lab:main

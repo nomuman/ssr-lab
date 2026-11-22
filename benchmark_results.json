@@ -1,0 +1,1324 @@
+{
+ "items": [
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 1,
+   "price": 6980,
+   "gold": 4
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 1,
+   "price": 9980,
+   "gold": 2
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 2,
+   "price": 6980,
+   "gold": 3
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 2,
+   "price": 9980,
+   "gold": 3
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 3,
+   "price": 6980,
+   "gold": 5
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 3,
+   "price": 9980,
+   "gold": 3
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 4,
+   "price": 6980,
+   "gold": 5
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 4,
+   "price": 9980,
+   "gold": 3
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 5,
+   "price": 6980,
+   "gold": 4
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 5,
+   "price": 9980,
+   "gold": 2
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 6,
+   "price": 6980,
+   "gold": 2
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 6,
+   "price": 9980,
+   "gold": 1
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 7,
+   "price": 6980,
+   "gold": 3
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 7,
+   "price": 9980,
+   "gold": 3
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 8,
+   "price": 6980,
+   "gold": 2
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 8,
+   "price": 9980,
+   "gold": 1
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 9,
+   "price": 6980,
+   "gold": 4
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 9,
+   "price": 9980,
+   "gold": 3
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 10,
+   "price": 6980,
+   "gold": 4
+  },
+  {
+   "concept": "frozen-bento-subscription",
+   "pid": 10,
+   "price": 9980,
+   "gold": 2
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 1,
+   "price": 980,
+   "gold": 4
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 1,
+   "price": 1980,
+   "gold": 2
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 2,
+   "price": 980,
+   "gold": 5
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 2,
+   "price": 1980,
+   "gold": 5
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 3,
+   "price": 980,
+   "gold": 4
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 3,
+   "price": 1980,
+   "gold": 2
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 4,
+   "price": 980,
+   "gold": 3
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 4,
+   "price": 1980,
+   "gold": 2
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 5,
+   "price": 980,
+   "gold": 4
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 5,
+   "price": 1980,
+   "gold": 2
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 6,
+   "price": 980,
+   "gold": 5
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 6,
+   "price": 1980,
+   "gold": 3
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 7,
+   "price": 980,
+   "gold": 2
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 7,
+   "price": 1980,
+   "gold": 1
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 8,
+   "price": 980,
+   "gold": 3
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 8,
+   "price": 1980,
+   "gold": 2
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 9,
+   "price": 980,
+   "gold": 3
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 9,
+   "price": 1980,
+   "gold": 2
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 10,
+   "price": 980,
+   "gold": 3
+  },
+  {
+   "concept": "language-app-premium",
+   "pid": 10,
+   "price": 1980,
+   "gold": 2
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 1,
+   "price": 3500,
+   "gold": 4
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 1,
+   "price": 5800,
+   "gold": 2
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 2,
+   "price": 3500,
+   "gold": 4
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 2,
+   "price": 5800,
+   "gold": 3
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 3,
+   "price": 3500,
+   "gold": 3
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 3,
+   "price": 5800,
+   "gold": 2
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 4,
+   "price": 3500,
+   "gold": 5
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 4,
+   "price": 5800,
+   "gold": 3
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 5,
+   "price": 3500,
+   "gold": 4
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 5,
+   "price": 5800,
+   "gold": 3
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 6,
+   "price": 3500,
+   "gold": 2
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 6,
+   "price": 5800,
+   "gold": 1
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 7,
+   "price": 3500,
+   "gold": 3
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 7,
+   "price": 5800,
+   "gold": 3
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 8,
+   "price": 3500,
+   "gold": 3
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 8,
+   "price": 5800,
+   "gold": 2
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 9,
+   "price": 3500,
+   "gold": 4
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 9,
+   "price": 5800,
+   "gold": 1
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 10,
+   "price": 3500,
+   "gold": 4
+  },
+  {
+   "concept": "protein-subscription",
+   "pid": 10,
+   "price": 5800,
+   "gold": 3
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 1,
+   "price": 12800,
+   "gold": 4
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 1,
+   "price": 19800,
+   "gold": 3
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 2,
+   "price": 12800,
+   "gold": 5
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 2,
+   "price": 19800,
+   "gold": 2
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 3,
+   "price": 12800,
+   "gold": 5
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 3,
+   "price": 19800,
+   "gold": 4
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 4,
+   "price": 12800,
+   "gold": 2
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 4,
+   "price": 19800,
+   "gold": 1
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 5,
+   "price": 12800,
+   "gold": 3
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 5,
+   "price": 19800,
+   "gold": 3
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 6,
+   "price": 12800,
+   "gold": 3
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 6,
+   "price": 19800,
+   "gold": 3
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 7,
+   "price": 12800,
+   "gold": 4
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 7,
+   "price": 19800,
+   "gold": 3
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 8,
+   "price": 12800,
+   "gold": 2
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 8,
+   "price": 19800,
+   "gold": 1
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 9,
+   "price": 12800,
+   "gold": 4
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 9,
+   "price": 19800,
+   "gold": 2
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 10,
+   "price": 12800,
+   "gold": 3
+  },
+  {
+   "concept": "smart-humidifier",
+   "pid": 10,
+   "price": 19800,
+   "gold": 3
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 1,
+   "price": 300,
+   "gold": 5
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 1,
+   "price": 800,
+   "gold": 3
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 2,
+   "price": 300,
+   "gold": 4
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 2,
+   "price": 800,
+   "gold": 2
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 3,
+   "price": 300,
+   "gold": 3
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 3,
+   "price": 800,
+   "gold": 2
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 4,
+   "price": 300,
+   "gold": 4
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 4,
+   "price": 800,
+   "gold": 3
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 5,
+   "price": 300,
+   "gold": 3
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 5,
+   "price": 800,
+   "gold": 2
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 6,
+   "price": 300,
+   "gold": 2
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 6,
+   "price": 800,
+   "gold": 1
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 7,
+   "price": 300,
+   "gold": 4
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 7,
+   "price": 800,
+   "gold": 2
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 8,
+   "price": 300,
+   "gold": 4
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 8,
+   "price": 800,
+   "gold": 3
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 9,
+   "price": 300,
+   "gold": 4
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 9,
+   "price": 800,
+   "gold": 3
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 10,
+   "price": 300,
+   "gold": 2
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 10,
+   "price": 800,
+   "gold": 1
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 11,
+   "price": 300,
+   "gold": 5
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 11,
+   "price": 800,
+   "gold": 4
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 12,
+   "price": 300,
+   "gold": 4
+  },
+  {
+   "concept": "techo-ai-letter",
+   "pid": 12,
+   "price": 800,
+   "gold": 3
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 1,
+   "price": 300,
+   "gold": 3
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 1,
+   "price": 800,
+   "gold": 2
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 2,
+   "price": 300,
+   "gold": 4
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 2,
+   "price": 800,
+   "gold": 2
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 3,
+   "price": 300,
+   "gold": 4
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 3,
+   "price": 800,
+   "gold": 2
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 4,
+   "price": 300,
+   "gold": 5
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 4,
+   "price": 800,
+   "gold": 4
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 5,
+   "price": 300,
+   "gold": 3
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 5,
+   "price": 800,
+   "gold": 2
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 6,
+   "price": 300,
+   "gold": 2
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 6,
+   "price": 800,
+   "gold": 1
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 7,
+   "price": 300,
+   "gold": 5
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 7,
+   "price": 800,
+   "gold": 2
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 8,
+   "price": 300,
+   "gold": 4
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 8,
+   "price": 800,
+   "gold": 2
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 9,
+   "price": 300,
+   "gold": 4
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 9,
+   "price": 800,
+   "gold": 2
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 10,
+   "price": 300,
+   "gold": 1
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 10,
+   "price": 800,
+   "gold": 1
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 11,
+   "price": 300,
+   "gold": 5
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 11,
+   "price": 800,
+   "gold": 4
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 12,
+   "price": 300,
+   "gold": 4
+  },
+  {
+   "concept": "techo-handwriting",
+   "pid": 12,
+   "price": 800,
+   "gold": 2
+  }
+ ],
+ "scores": {
+  "mpnet_v2_whole": [
+   2.7564083466401588,
+   3.118961912130361,
+   2.858347266549554,
+   2.654401501755717,
+   3.299171633208059,
+   2.5115996473886804,
+   2.723183182410762,
+   2.8980037284549716,
+   3.7488489832282026,
+   3.2086441171161817,
+   2.414442386336965,
+   2.1744467128471276,
+   3.5651298380613663,
+   3.0810095044524184,
+   2.526218783875779,
+   2.324051738707911,
+   2.592330568669745,
+   3.0634497789397415,
+   3.2852033386861375,
+   2.114621260176546,
+   3.7207896298137326,
+   3.0533707477467322,
+   4.6669506641382075,
+   3.859886656592299,
+   3.3307424296564285,
+   2.914752221224912,
+   3.1298862881489415,
+   2.598229054678827,
+   3.3266063402767774,
+   2.6300704548717917,
+   3.711190260777681,
+   3.458551669642589,
+   3.583928998693483,
+   3.2559291176527294,
+   2.6816496729264405,
+   2.0105743602546036,
+   3.1794733686500565,
+   2.896391574147349,
+   2.9662710904893097,
+   2.568203101399887,
+   3.6030980669675743,
+   1.8156156858926655,
+   3.047530959470335,
+   2.284722922082198,
+   2.1034969594020616,
+   2.718016204232289,
+   2.1234804619288883,
+   2.2339075776028396,
+   4.07883460461874,
+   2.7278446038840367,
+   2.481048787757391,
+   1.8323828046650987,
+   3.2484465696517764,
+   3.375989273238752,
+   2.7365205792320477,
+   2.65207574893079,
+   3.278397894828189,
+   1.7000269305987215,
+   3.549033179321205,
+   3.615930336749935,
+   3.499260037115502,
+   3.7841070809476065,
+   3.091844101896187,
+   2.4031222096165163,
+   3.887061840201816,
+   4.1900668287760965,
+   3.6630886267968648,
+   2.6350980978465883,
+   3.1486343977565694,
+   3.791663265975434,
+   2.8992250975225233,
+   3.3008365631683247,
+   2.8069373971189284,
+   3.725662983962975,
+   3.0013063750073488,
+   1.4827540870940108,
+   3.275464439745398,
+   3.716936877707593,
+   3.045083953251433,
+   3.037461532463555,
+   3.9064873919825507,
+   3.625783076018322,
+   2.985277373176591,
+   2.8910744946841036,
+   3.6363610764989467,
+   3.0993729507138617,
+   3.8922616697920245,
+   3.028427414307545,
+   3.2890648052845224,
+   2.172989266630306,
+   2.3164305860341092,
+   1.922736240299479,
+   4.161425660967637,
+   3.396343960882914,
+   3.340288714374452,
+   3.1318672234477463,
+   3.894028974347211,
+   3.2082269585308163,
+   2.7647947760292078,
+   1.8310897942404147,
+   4.015260318670034,
+   3.978306917337491,
+   3.684738396813025,
+   2.493934168429342,
+   3.5270414048057277,
+   3.115887037680098,
+   3.2525931011716476,
+   2.8492086764152753,
+   4.110570569136582,
+   3.016457259330233,
+   3.924931670395185,
+   3.748443547350565,
+   3.348227880866757,
+   2.7300409299903525,
+   3.0646115180927906,
+   2.0398578451332,
+   4.269023848935046,
+   3.3461661595649232,
+   4.016942882206066,
+   2.221944602504797,
+   3.8995779099619337,
+   3.104523012175903,
+   3.358994242779334,
+   2.8511403054303313,
+   3.8166669120405143,
+   3.2090568420049683,
+   2.9663433332323437,
+   2.9602438212454634
+  ],
+  "mpnet_v2_extract": [
+   3.1582348874221426,
+   1.9871258395289444,
+   3.030924739829482,
+   3.32021354977135,
+   3.72468498127869,
+   2.5432209124096494,
+   4.58967647879449,
+   3.319095424691631,
+   3.659016648811119,
+   2.328470878125318,
+   3.216384403428309,
+   1.0043231562953672,
+   3.191358457434529,
+   3.610636839825017,
+   2.112425861377368,
+   1.0949691181473364,
+   3.899995241133555,
+   2.380477151292362,
+   3.9009909319194036,
+   1.7128121400445322,
+   3.4290740919659286,
+   2.1719947282747123,
+   4.919430731134613,
+   3.6288296586522732,
+   3.542833334666806,
+   3.5270470851311475,
+   2.626742445732866,
+   1.82939117040875,
+   3.6257753693392494,
+   2.7285487472597905,
+   4.160806810899503,
+   2.3423178237078592,
+   3.924391178075838,
+   3.3331403558837196,
+   2.675868469336009,
+   1.0733784976453342,
+   2.795635900903275,
+   3.5852872288327835,
+   3.5147516324650865,
+   1.6127969758760616,
+   4.048546392252233,
+   1.152788065213889,
+   3.4727583164967917,
+   2.241444921626834,
+   2.382178256562784,
+   3.1037729062401866,
+   4.09277239756176,
+   2.7913796270137796,
+   3.4664827101284024,
+   3.55043808529579,
+   2.1513122819111943,
+   1.4795657088721215,
+   3.7485912219105653,
+   2.654776131843564,
+   2.7965167741919967,
+   3.0066177906657,
+   3.110094836777383,
+   1.005136420595613,
+   3.7086273785170087,
+   2.4290652078735873,
+   3.8230249015413773,
+   3.2944124322928623,
+   3.25722809395896,
+   2.5741905579357423,
+   4.5697646361424535,
+   4.214859983332444,
+   3.446707588784364,
+   1.420472486638682,
+   2.7897335889920116,
+   3.721098862419898,
+   3.2857301459439374,
+   3.602770156141734,
+   3.362102440547413,
+   3.416080372449455,
+   3.1305119389950358,
+   1.267483423243818,
+   2.9947354308815477,
+   2.511277184619808,
+   2.9825513043542515,
+   3.187849348503599,
+   4.212582645999019,
+   3.6130995574249662,
+   3.7102808658254984,
+   2.460752264804931,
+   3.169006294985597,
+   3.784155745207276,
+   3.9980460016146675,
+   3.43796423907577,
+   3.318613230291207,
+   2.390720180267735,
+   2.3531477913673515,
+   1.1370650100562372,
+   4.060219028951435,
+   2.501089009976506,
+   4.892363997215627,
+   3.419088945025867,
+   3.872005705243424,
+   3.2737015547047332,
+   1.9347112443050272,
+   1.4464669084632311,
+   4.2659350184559415,
+   4.438863350488984,
+   4.243428167922841,
+   3.4424188775544495,
+   3.939851650238422,
+   2.1846864316083634,
+   3.6593801818912444,
+   4.403662923025505,
+   4.3854033534730394,
+   3.6161398557025226,
+   4.122613810250683,
+   3.779524409204155,
+   3.013621367021894,
+   2.2559667136067714,
+   3.0244886164422895,
+   2.098199028655988,
+   4.190216434711111,
+   2.5159623491875656,
+   4.419658429346211,
+   1.9720036072347702,
+   4.242893154057772,
+   3.1042590029057995,
+   3.387100551562572,
+   3.376508036709071,
+   3.6837000935446165,
+   3.642253265360911,
+   4.168169964680695,
+   3.0914760668187107
+  ],
+  "mpnet_ensemble": [
+   2.900091974010124,
+   2.7155195585597927,
+   2.963994450045469,
+   2.8716902750800237,
+   3.4503891254894365,
+   2.5199858881255466,
+   3.408367750334108,
+   3.0560119967984876,
+   3.6703330294693934,
+   2.980261594554824,
+   2.8022953579767544,
+   1.9774453994889913,
+   3.47365008702768,
+   3.4162837036330234,
+   2.4112943495472603,
+   2.175013625130695,
+   3.2144432874062283,
+   2.8823082890866423,
+   3.5296484374178108,
+   2.063864149092544,
+   3.607910574082075,
+   2.847581732284254,
+   4.597154051249505,
+   3.7068008669873347,
+   3.459621622875003,
+   3.1778267605257917,
+   2.8172763793402393,
+   2.3893665109028475,
+   3.4219147714958282,
+   2.6600373058259783,
+   3.7763786033040208,
+   2.9529702379002276,
+   3.4259873960500222,
+   3.3550973950121676,
+   2.6421513941488217,
+   1.8376394309590596,
+   3.063104508800553,
+   3.1831463784454184,
+   3.2587307426042895,
+   2.494865944959678,
+   3.7619881671350712,
+   1.5691264776392677,
+   3.2720865363500917,
+   2.2908534014786937,
+   2.3421630784644836,
+   2.847157554232881,
+   2.9788006766328685,
+   2.5575642809008894,
+   3.7821184733455198,
+   2.995360471158948,
+   2.489230742879243,
+   1.7970508626378854,
+   3.4180374626720487,
+   3.0382056015717924,
+   2.7942662707076598,
+   2.9267631989171434,
+   3.2641289774022595,
+   1.5933945229648359,
+   3.6051358937274345,
+   3.231502939482391,
+   3.669001985757164,
+   3.5879312136017565,
+   3.2049790917185397,
+   2.5585387792139906,
+   4.1358444879383995,
+   4.1718019518011955,
+   3.612574646599157,
+   2.210275664349526,
+   2.9574738325400056,
+   3.7132838767871603,
+   3.0896547112804655,
+   3.391183544173039,
+   3.1122702941781406,
+   3.5549773551267076,
+   3.0879425588035296,
+   1.56240624088942,
+   3.2641577415832597,
+   3.204233800556807,
+   2.946708847785022,
+   3.0433490944772608,
+   3.9623326980812195,
+   3.5220748474389514,
+   3.3033504936145577,
+   2.6899957410439908,
+   3.3832331081671043,
+   3.3506016227326936,
+   3.9057064914426984,
+   3.225475635052599,
+   3.214943610880097,
+   2.264271214165037,
+   2.3761548508803068,
+   1.7940226081122723,
+   4.056016905949163,
+   2.919271116316702,
+   3.858838853570824,
+   3.2902526832506447,
+   3.9125857226098,
+   3.248496598734669,
+   2.664008009759422,
+   1.8856618348576646,
+   4.074722469480832,
+   4.055075128665925,
+   3.912294316676412,
+   2.993916619715185,
+   3.692447721866266,
+   2.7386633855474414,
+   3.4005588828391637,
+   3.539991155252098,
+   4.141960779564222,
+   3.2984501046146963,
+   3.913353658769342,
+   3.7271548952379336,
+   3.1977768963898545,
+   2.5340743349789974,
+   3.1506363051596185,
+   2.0805778449521,
+   4.168733913410894,
+   3.00534021050499,
+   4.036192348218256,
+   2.3859852015137335,
+   3.9706842029318232,
+   3.1339678099155104,
+   3.176935474277523,
+   3.1015295571152652,
+   3.6044033125384196,
+   3.5191812865238674,
+   3.5407160453301625,
+   2.961130271032772
+  ]
+ },
+ "n_items": 128,
+ "methods": {
+  "mpnet_v2_whole": {
+   "mae": 0.717,
+   "spearman": 0.609,
+   "inversions": 13,
+   "pairs": 64,
+   "loo_cal_mae": 0.703
+  },
+  "mpnet_v2_extract": {
+   "mae": 0.593,
+   "spearman": 0.734,
+   "inversions": 13,
+   "pairs": 64,
+   "loo_cal_mae": 0.593
+  },
+  "mpnet_ensemble": {
+   "mae": 0.646,
+   "spearman": 0.73,
+   "inversions": 9,
+   "pairs": 64,
+   "loo_cal_mae": 0.598
+  }
+ },
+ "per_concept": {
+  "frozen-bento-subscription": {
+   "mpnet_v2_whole": {
+    "mae": 0.763,
+    "spearman": 0.493,
+    "inversions": 3,
+    "pairs": 10
+   },
+   "mpnet_v2_extract": {
+    "mae": 0.384,
+    "spearman": 0.82,
+    "inversions": 2,
+    "pairs": 10
+   },
+   "mpnet_ensemble": {
+    "mae": 0.633,
+    "spearman": 0.768,
+    "inversions": 0,
+    "pairs": 10
+   }
+  },
+  "language-app-premium": {
+   "mpnet_v2_whole": {
+    "mae": 0.701,
+    "spearman": 0.656,
+    "inversions": 0,
+    "pairs": 10
+   },
+   "mpnet_v2_extract": {
+    "mae": 0.776,
+    "spearman": 0.576,
+    "inversions": 1,
+    "pairs": 10
+   },
+   "mpnet_ensemble": {
+    "mae": 0.702,
+    "spearman": 0.645,
+    "inversions": 1,
+    "pairs": 10
+   }
+  },
+  "protein-subscription": {
+   "mpnet_v2_whole": {
+    "mae": 0.66,
+    "spearman": 0.635,
+    "inversions": 4,
+    "pairs": 10
+   },
+   "mpnet_v2_extract": {
+    "mae": 0.54,
+    "spearman": 0.747,
+    "inversions": 3,
+    "pairs": 10
+   },
+   "mpnet_ensemble": {
+    "mae": 0.556,
+    "spearman": 0.743,
+    "inversions": 2,
+    "pairs": 10
+   }
+  },
+  "smart-humidifier": {
+   "mpnet_v2_whole": {
+    "mae": 0.773,
+    "spearman": 0.373,
+    "inversions": 6,
+    "pairs": 10
+   },
+   "mpnet_v2_extract": {
+    "mae": 0.565,
+    "spearman": 0.517,
+    "inversions": 4,
+    "pairs": 10
+   },
+   "mpnet_ensemble": {
+    "mae": 0.675,
+    "spearman": 0.481,
+    "inversions": 5,
+    "pairs": 10
+   }
+  },
+  "techo-ai-letter": {
+   "mpnet_v2_whole": {
+    "mae": 0.554,
+    "spearman": 0.849,
+    "inversions": 0,
+    "pairs": 12
+   },
+   "mpnet_v2_extract": {
+    "mae": 0.433,
+    "spearman": 0.9,
+    "inversions": 2,
+    "pairs": 12
+   },
+   "mpnet_ensemble": {
+    "mae": 0.459,
+    "spearman": 0.937,
+    "inversions": 0,
+    "pairs": 12
+   }
+  },
+  "techo-handwriting": {
+   "mpnet_v2_whole": {
+    "mae": 0.857,
+    "spearman": 0.622,
+    "inversions": 0,
+    "pairs": 12
+   },
+   "mpnet_v2_extract": {
+    "mae": 0.841,
+    "spearman": 0.625,
+    "inversions": 1,
+    "pairs": 12
+   },
+   "mpnet_ensemble": {
+    "mae": 0.847,
+    "spearman": 0.755,
+    "inversions": 1,
+    "pairs": 12
+   }
+  }
+ },
+ "calibration": {
+  "mpnet_v2_whole": {
+   "fit_techo_test_others": 0.774,
+   "fit_others_test_techo": 0.702
+  },
+  "mpnet_v2_extract": {
+   "fit_techo_test_others": 0.659,
+   "fit_others_test_techo": 0.63
+  },
+  "mpnet_ensemble": {
+   "fit_techo_test_others": 0.692,
+   "fit_others_test_techo": 0.596
+  }
+ }
+}

@@ -18,61 +18,100 @@ SSR instead:
 3. Converts similarities into a probability distribution over the 5-point
    scale (`p(k) ∝ sim^T`), yielding an expected purchase-intent score.
 
-## What's in here
+## Dataset
 
-| File | Contents |
-|---|---|
-| `ssr_lab.py` | Packaged scorer using the best configuration found (see below) |
-| `ssr.py` | Original round-1 scorer (MiniLM, whole text) |
-| `methods.py` | 14-method comparison harness vs. gold labels |
-| `responses.json` | Concept A: "AI monthly recap letter" for a diary app — 12 personas × 2 prices, free-text answers |
-| `responses2.json` | Concept B: "Handwriting input" — same personas and prices |
-| `extracts.json` | LLM-extracted one-sentence intent statements for every answer |
-| `anchors_v1.json` / `anchors_v2.json` | Anchor statement sets (3 / 6 per Likert point, Japanese) |
-| `gold.json` | Human-read gold labels (1–5) for all 48 answers — read by the lab author, *not* a real consumer panel |
-| `methods_results.json` | Raw per-item scores for every method |
-| `REPORT.md` | Full experiment log in Japanese (rounds 1–5), including failures |
+128 labelled responses across **6 concepts in 5 domains** (Japanese),
+each with 10–12 personas answering at 2 price points:
 
-## Best configuration found (round 4)
-
-Evaluated on 48 answers against gold labels (MAE / Spearman / price inversions):
-
-| Method | MAE | Spearman | Inversions |
+| Concept | Domain | Prices (JPY) | Items |
 |---|---|---|---|
-| MPNet-multilingual + extracted intent | 0.637 | 0.760 | 3/24 |
-| **MPNet-multilingual + whole text** | **0.705** | **0.762** | **0/24** |
-| Ensemble (whole + extract + sentence-weighted) | 0.653 | 0.856 | 1/24 |
-| MiniLM + whole text (starting point) | 0.833–0.867 | 0.65 | 5–7/24 |
-| Sentence-level "most confident sentence" | 0.832 | 0.450 | 11/24 |
+| `techo-ai-letter` | Diary app feature: AI monthly recap letter | 300 / 800 per month | 24 |
+| `techo-handwriting` | Diary app feature: handwriting input | 300 / 800 per month | 24 |
+| `protein-subscription` | Protein delivery subscription | 3,500 / 5,800 per month | 20 |
+| `smart-humidifier` | Smart humidifier (one-time) | 12,800 / 19,800 | 20 |
+| `language-app-premium` | Language-learning app premium plan | 980 / 1,980 per month | 20 |
+| `frozen-bento-subscription` | Frozen bento delivery | 6,980 / 9,980 per month | 20 |
 
-Takeaways:
+Every response ships with a **gold label** (1–5, rubric in CONTRIBUTING.md)
+and a one-sentence **intent extract**. The responses deliberately include
+realistic noise: polite negations, topic drift, trial-conditional answers.
+Gold labels are lab-authored readings — *not* a real consumer panel
+(see Limitations).
+
+## Benchmark results (round 6, all 128 items)
+
+MPNet-multilingual embeddings, v2 anchors, T=10:
+
+| Method | MAE | Spearman | Price inversions |
+|---|---|---|---|
+| Extracted intent | **0.593** | **0.734** | 13/64 |
+| Ensemble (whole + extract + sentence-weighted) | 0.646 | 0.730 | **9/64** |
+| Whole text | 0.717 | 0.609 | 13/64 |
+
+Findings so far:
 
 - **The embedding model matters most.** Swapping MiniLM for
-  paraphrase-multilingual-MPNet removed all price inversions.
-- LLM extraction lowers average error but occasionally blows up on a single
-  item; don't use it alone.
+  paraphrase-multilingual-MPNet was the single biggest win in early rounds.
+- **Across diverse domains, extraction beats whole-text.** On the original
+  two concepts whole-text looked safest (0 inversions); with 6 concepts it
+  degrades to 13/64 inversions, while extraction holds the best MAE.
+  The ensemble is the balanced pick: near-best MAE, fewest inversions.
+- **Calibration does not transfer across domains.** A linear stretch fitted
+  on one concept group mostly *hurt* MAE on another (e.g. whole-text:
+  0.724 raw → 0.774 transferred). Fit calibration per domain, with local
+  labelled data — never import coefficients.
 - Picking the single most confident sentence is a failure mode — discard it.
 - Scores compress at both ends (a flat "absolutely not" still lands ≈2.9,
   a rave ≈3.8). Use SSR for **relative** comparisons (price A/B, concept
   ranking), not absolute prediction.
+- Bigger isn't better by itself: multilingual-e5-large scored worse raw
+  (MAE 0.983) but reached the top tier after calibration (LOO 0.501) —
+  its ranking is strong, its raw scale is just heavily compressed.
+
+Per-concept numbers and full history (including failures) are in
+`REPORT.md` (Japanese) and `benchmark_results.json`.
 
 ## Quick start
 
 ```bash
-uv run --with fastembed --with numpy python ssr_lab.py score responses.json
-uv run --with fastembed --with numpy python ssr_lab.py evaluate   # needs gold.json
+# Score one concept (whole-text, no extra steps)
+uv run --with fastembed --with numpy python ssr_lab.py score data/protein-subscription.json
+
+# Evaluate all concepts against gold labels
+uv run --with fastembed --with numpy python ssr_lab.py evaluate
+
+# Full benchmark incl. calibration-transfer test
+uv run --with fastembed --with numpy python benchmark.py
+
+# Validate the dataset (no model needed)
+python -m unittest discover -s tests
 ```
 
 Note: in proxied environments, Hugging Face downloads may need
 `HF_HUB_DISABLE_XET=1` and a sanitized `NO_PROXY` (see REPORT.md round 1).
 
+## Repository layout
+
+```
+data/        concept datasets (responses + gold + extracts per concept)
+ssr_lab.py   packaged scorer (best-practice defaults, optional calibration)
+benchmark.py generalized benchmark across all concepts
+tests/       dataset validation (schema, coverage, label ranges)
+legacy/      round 1-5 harnesses and raw outputs, kept for reproducibility
+REPORT.md    full experiment log in Japanese, failures included
+```
+
 ## Limitations
 
-- Gold labels are one reader's judgments, not measured consumer data.
+- Gold labels are lab-authored judgments, not measured consumer data.
   The original paper validated against 9,300 real survey responses; this
   repo validates *method mechanics* only.
 - Personas and answers were generated by an LLM; no real users were surveyed.
-- Test concepts are hypothetical features for a diary/techo app.
+- All concepts are hypothetical products.
+
+## Contributing
+
+See [CONTRIBUTING.md](CONTRIBUTING.md) for how to add a concept dataset.
 
 ## License
 

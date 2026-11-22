@@ -10,9 +10,9 @@ Config (round 4 verdict):
   T         : 10  (p(k) proportional to sim^T)
 
 Usage:
-  uv run --with fastembed --with numpy python ssr_lab.py score responses.json
-  uv run --with fastembed --with numpy python ssr_lab.py score responses2.json --extracts extracts.json
-  uv run --with fastembed --with numpy python ssr_lab.py evaluate   # vs gold.json, both concepts
+  uv run --with fastembed --with numpy python ssr_lab.py score data/techo-ai-letter.json
+  uv run --with fastembed --with numpy python ssr_lab.py score data/techo-ai-letter.json --extracts data/techo-ai-letter.extracts.json
+  uv run --with fastembed --with numpy python ssr_lab.py evaluate   # all concepts in data/
 """
 import argparse
 import json
@@ -26,9 +26,10 @@ MODEL = "sentence-transformers/paraphrase-multilingual-mpnet-base-v2"
 TEMPERATURE = 10
 
 # Optional linear calibration (round 5): SSR scores compress toward the
-# middle, so a stretch fitted on this lab's 48 gold labels helps.
-# gold ~= a * score + b. Fitted per mode; LOO-validated (MAE 0.71->0.62 whole,
-# 0.65->0.51 ensemble). Dataset-specific — refit before trusting elsewhere.
+# middle, so a stretch fitted on labelled data helps WITHIN that domain
+# (LOO-validated on the techo concepts: MAE 0.71->0.62 whole, 0.65->0.51
+# ensemble). Round 6 showed calibration does NOT transfer across domains —
+# refit per domain, never import coefficients from another concept group.
 CALIBRATION = {"whole": (1.51, -1.92), "ensemble": (1.62, -2.36)}
 USE_CALIBRATION = False
 
@@ -95,8 +96,7 @@ def cmd_score(args):
     data = load_responses(args.file)
     extracts = None
     if args.extracts:
-        raw = json.load(open(args.extracts, encoding="utf-8"))
-        extracts = raw.get(args.file.split("/")[-1])
+        extracts = json.load(open(args.extracts, encoding="utf-8"))
     personas = {p["id"]: p for p in data["personas"]}
     rows = []
     for r in data["responses"]:
@@ -117,27 +117,34 @@ def cmd_score(args):
                 line.append(f"@{price} {np.mean(vals):.2f}")
         print(f"    {seg}: {' / '.join(line)}")
 
+def concept_files():
+    import glob
+    return sorted(f for f in glob.glob("data/*.json")
+                  if ".gold." not in f and ".extracts." not in f)
+
 def cmd_evaluate(args):
     anchors = load_anchors()
-    gold = json.load(open("gold.json", encoding="utf-8"))
-    extracts_all = json.load(open("extracts.json", encoding="utf-8"))
     for mode in ["whole", "ensemble"]:
-        errs, pairs, inv = [], [], 0
-        for fname in ["responses.json", "responses2.json"]:
+        errs, inv, pairs = [], 0, 0
+        for fname in concept_files():
+            gold = json.load(open(fname.replace(".json", ".gold.json"), encoding="utf-8"))
+            extracts = json.load(open(fname.replace(".json", ".extracts.json"), encoding="utf-8"))
             data = load_responses(fname)
             got = {}
             for r in data["responses"]:
                 key = f"{r['persona_id']}@{r['price']}"
-                ext = extracts_all[fname][key] if mode == "ensemble" else None
+                ext = extracts[key] if mode == "ensemble" else None
                 s = score_response(r["text"], anchors, ext)
                 got[r["persona_id"], r["price"]] = s
-                errs.append(abs(s - gold[fname][key]))
-            for pid in range(1, 13):
-                if got[pid, 800] > got[pid, 300]:
+                errs.append(abs(s - gold[key]))
+            lo, hi = data["prices"]
+            for pid in {p["id"] for p in data["personas"]}:
+                pairs += 1
+                if got[pid, hi] > got[pid, lo]:
                     inv += 1
-        print(f"{mode}: MAE {np.mean(errs):.3f}  inversions {inv}/24")
+        print(f"{mode}: MAE {np.mean(errs):.3f}  inversions {inv}/{pairs}")
 
-if __name__ == "__main__":
+def main():
     ap = argparse.ArgumentParser()
     sub = ap.add_subparsers(dest="cmd", required=True)
     sp = sub.add_parser("score")
@@ -149,5 +156,8 @@ if __name__ == "__main__":
     ap.add_argument("--calibrate", action="store_true",
                     help="apply the round-5 linear calibration fitted on gold.json")
     args = ap.parse_args()
-    USE_CALIBRATION = args.calibrate
+    globals()["USE_CALIBRATION"] = args.calibrate
     args.fn(args)
+
+if __name__ == "__main__":
+    main()

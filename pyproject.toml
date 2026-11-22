@@ -1,0 +1,21 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "ssr-lab"
+version = "0.2.0"
+description = "Semantic Similarity Rating (SSR) experiments: turning LLM free-text survey answers into Likert purchase-intent scores"
+readme = "README.md"
+license = { text = "MIT" }
+requires-python = ">=3.10"
+dependencies = ["numpy", "fastembed"]
+
+[project.scripts]
+ssr-lab = "ssr_lab:main"
+
+[tool.setuptools]
+py-modules = ["ssr_lab", "benchmark"]
+
+[tool.ruff]
+line-length = 120
