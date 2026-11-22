@@ -1,3 +1,5 @@
 hf/
 __pycache__/
 *.pyc
+validation/*.jsonl
+.github/

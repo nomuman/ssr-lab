@@ -90,6 +90,25 @@ python -m unittest discover -s tests
 Note: in proxied environments, Hugging Face downloads may need
 `HF_HUB_DISABLE_XET=1` and a sanitized `NO_PROXY` (see REPORT.md round 1).
 
+## Validation on real human text
+
+The paper's own dataset (9,300 consumers) is not public, so we validated
+the text→scale mapping on **MARC-ja** — 1,000 real Japanese Amazon reviews
+(balanced 200 per star, test split) scored against their true star ratings
+with satisfaction anchors:
+
+| Anchors | MAE | Spearman | KS similarity |
+|---|---|---|---|
+| Satisfaction sentences (6/level) | 0.797 | 0.701 | 0.856 |
+| Single words only | 1.024 | 0.592 | 0.840 |
+
+The mapping works on real human writing, with the same end-compression
+seen in the synthetic lab (5-star reviews are hardest, MAE 1.167).
+Note: this validates the mechanism on post-purchase *satisfaction*;
+purchase *intent* itself remains validated only by the original paper.
+Reproduce with `validation/validate_marc_ja.py` (data fetch instructions
+in the script header; raw reviews are not redistributed here).
+
 ## Repository layout
 
 ```
