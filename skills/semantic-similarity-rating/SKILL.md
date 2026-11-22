@@ -79,6 +79,10 @@ uv run --with fastembed --with numpy python scripts/ssr_score.py responses.json 
   badly. For high-stakes reads, use `ensemble`, not `extract` alone.
 - **Sentence picking is a trap.** Scoring only the "most confident
   sentence" of a response was the worst method tested. Never do it.
+- **On real review text, keep it simple.** Sentence-level scoring and
+  in-domain calibration — both promising on synthetic data — gained
+  little or nothing on 3,000 real reviews (round 8). Whole-text is the
+  robust default for long, messy human text.
 - **Bigger embedding models are not automatically better.** The bundled
   MPNet default beat a much larger model on raw scores; the larger model
   only caught up after calibration.

@@ -116,6 +116,13 @@ with satisfaction anchors:
 | Satisfaction sentences (6/level) | 0.797 | 0.701 | 0.856 |
 | Single words only | 1.024 | 0.592 | 0.840 |
 
+Round 8 extended this to three real datasets (1,000 reviews each):
+whole-text SSR held up across languages and sources — MARC-en
+0.760 / 0.728 / 0.874, Yelp 0.793 / 0.714 / 0.847. Improvement attempts
+were mostly inconclusive on real text: sentence-level scoring did not
+beat whole-text on MAE, in-domain calibration gained little, and
+halving the anchors slightly hurt MAE while *improving* KS similarity.
+
 The mapping works on real human writing, with the same end-compression
 seen in the synthetic lab (5-star reviews are hardest, MAE 1.167).
 Note: this validates the mechanism on post-purchase *satisfaction*;

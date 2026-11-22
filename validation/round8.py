@@ -152,9 +152,14 @@ def evaluate(sample, anchors, lang, emb, with_e5=False):
 ja_anchors = {int(k): v for k, v in json.load(open("validation/anchors_satisfaction.json", encoding="utf-8")).items()}
 en_anchors = {int(k): v for k, v in json.load(open("validation/anchors_satisfaction_en.json", encoding="utf-8")).items()}
 
+import os
 out = {}
-print("== marc_ja =="); out["marc_ja"] = evaluate(ja_sample, ja_anchors, "ja", mpnet, with_e5=True); print(json.dumps(out["marc_ja"], ensure_ascii=False))
-print("== marc_en =="); out["marc_en"] = evaluate(en_sample, en_anchors, "en", mpnet); print(json.dumps(out["marc_en"], ensure_ascii=False))
+def save_partial():
+    json.dump(out, open("validation/round8_results.json", "w"), ensure_ascii=False, indent=1)
+print("== marc_ja =="); out["marc_ja"] = evaluate(ja_sample, ja_anchors, "ja", mpnet, with_e5=(os.environ.get("E5") == "1")); print(json.dumps(out["marc_ja"], ensure_ascii=False)); save_partial()
+mpnet.cache.clear()
+print("== marc_en =="); out["marc_en"] = evaluate(en_sample, en_anchors, "en", mpnet); print(json.dumps(out["marc_en"], ensure_ascii=False)); save_partial()
+mpnet.cache.clear()
 print("== yelp =="); out["yelp"] = evaluate(yelp_sample, en_anchors, "en", mpnet); print(json.dumps(out["yelp"], ensure_ascii=False))
 json.dump(out, open("validation/round8_results.json", "w"), ensure_ascii=False, indent=1)
 print("saved validation/round8_results.json")
