@@ -2,6 +2,8 @@
 
 [![CI](https://github.com/nomuman/ssr-lab/actions/workflows/ci.yml/badge.svg)](https://github.com/nomuman/ssr-lab/actions/workflows/ci.yml)
 
+English | [日本語版 README](README.ja.md)
+
 Experiments with **Semantic Similarity Rating (SSR)** — a method for turning
 LLM-generated free-text survey responses into Likert-scale purchase-intent
 scores, following Maier et al., *"LLMs Reproduce Human Purchase Intent via
