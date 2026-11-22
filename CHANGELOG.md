@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.3.0 — 2026-11-22
+- Installable agent skill: `skills/semantic-similarity-rating/` — SKILL.md
+  workflow + standalone scorer + purchase-intent/satisfaction anchors
+  (JA/EN) + worked example. Install: `npx skills add nomuman/ssr-lab`
+- Round 7 validation on real human text (MARC-ja, 1,000 reviews)
+
 ## 0.2.0 — 2026-11-22
 - Dataset expanded from 2 to 6 concepts across domains (diary-app features,
   protein subscription, smart humidifier, language-app premium, frozen

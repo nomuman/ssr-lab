@@ -71,6 +71,20 @@ Findings so far:
 Per-concept numbers and full history (including failures) are in
 `REPORT.md` (Japanese) and `benchmark_results.json`.
 
+## Use it as an agent skill (any LLM)
+
+This repo ships an installable agent skill — the method, the scorer, and
+the interpretation rules in one package, for Claude Code, Codex, Cursor,
+and other skills-compatible agents:
+
+```bash
+npx skills add nomuman/ssr-lab
+```
+
+or copy `skills/semantic-similarity-rating/` into your agent's skills
+directory manually. Scoring runs locally (fastembed + multilingual MPNet):
+no API key, and response text never leaves your machine.
+
 ## Quick start
 
 ```bash
