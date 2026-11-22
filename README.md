@@ -33,6 +33,7 @@ each with 10–12 personas answering at 2 price points:
 | `smart-humidifier` | Smart humidifier (one-time) | 12,800 / 19,800 | 20 |
 | `language-app-premium` | Language-learning app premium plan | 980 / 1,980 per month | 20 |
 | `frozen-bento-subscription` | Frozen bento delivery | 6,980 / 9,980 per month | 20 |
+| `kids-phone-ai-qa` | Kids phone option: child asks AI questions by voice | 500 / 980 per month | 24 |
 
 Every response ships with a **gold label** (1–5, rubric in CONTRIBUTING.md)
 and a one-sentence **intent extract**. The responses deliberately include
@@ -66,6 +67,13 @@ Findings so far:
 - Scores compress at both ends (a flat "absolutely not" still lands ≈2.9,
   a rave ≈3.8). Use SSR for **relative** comparisons (price A/B, concept
   ranking), not absolute prediction.
+- **Direct Likert is not always worse.** In a control run (round 9),
+  direct ratings elicited without seeing the responses scored MAE 0.454
+  vs SSR's 0.672 — inside an all-LLM loop, direct elicitation shares the
+  labeller's judgment. SSR's documented advantage is against *human*
+  distributions; it also returns a per-item probability distribution
+  instead of one forced number.
+
 - Bigger isn't better by itself: multilingual-e5-large scored worse raw
   (MAE 0.983) but reached the top tier after calibration (LOO 0.501) —
   its ranking is strong, its raw scale is just heavily compressed.

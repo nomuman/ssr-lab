@@ -19,3 +19,11 @@
 - Rounds 1-5: SSR replication on two diary-app feature concepts
   (48 responses), 14-method comparison, packaged `ssr_lab.py` scorer,
   linear calibration (LOO-validated), e5-large evaluation
+
+## 0.4.0 — 2026-11-22
+
+- Repository is now public.
+- Round 9: direct-Likert control experiment (152 ratings elicited blind);
+  skill documentation now carries the all-synthetic-loop caveat.
+- Browser demo in docs/demo.html (GitHub Pages), introduction article draft.
+- CI workflow enabled; README refreshed to 7 concepts / 152 items.
